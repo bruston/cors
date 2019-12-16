@@ -5,7 +5,7 @@ Usage of cors:
   -cookies string
     	cookies to send with the request
   -d string
-    	top level domain name
+    	domain name
   -f string
     	path to list of urls, defaults to stdin if left blank
   -t int

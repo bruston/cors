@@ -15,7 +15,7 @@ import (
 
 func main() {
 	input := flag.String("f", "", "path to list of urls, defaults to stdin if left empty")
-	domain := flag.String("d", "", "top level domain name")
+	domain := flag.String("d", "", "domain name")
 	concurrent := flag.Int("c", 10, "number of concurrent requests to make")
 	timeout := flag.Int("t", 5, "timeout in seconds")
 	cookies := flag.String("cookies", "", "cookies to send with the request")
