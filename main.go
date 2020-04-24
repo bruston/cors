@@ -64,7 +64,7 @@ func check(client *http.Client, domain, cookies string, work chan string, wg *sy
 			req.Header.Set("Cookie", cookies)
 		}
 		req.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36")
-		origins := []string{"https://asdf.com", "https://asdf" + domain, "https://" + domain + "asdf.com", "null"}
+		origins := []string{"https://asdf.com", "https://asdf" + domain, "https://" + domain + "asdf.com", "null", "https://asdf." + domain + "asdf.com"}
 		for _, v := range origins {
 			req.Header.Set("Origin", v)
 			resp, err := client.Do(req)
@@ -75,6 +75,7 @@ func check(client *http.Client, domain, cookies string, work chan string, wg *sy
 			resp.Body.Close()
 			if resp.Header.Get("Access-Control-Allow-Origin") == v {
 				fmt.Println(url, v)
+				break
 			}
 		}
 	}
